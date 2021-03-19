@@ -7,13 +7,16 @@ const Pokedex = (props:any) => {
     <div>
       <h1>Pokedex!</h1>
       <div className="Pokedex-cards">
+        {
+          props.pokemon.map((pokemon: any) => (
+              <Pokecard id = {pokemon.id} name = {pokemon.name} type = {pokemon.type} exp = {pokemon.base_experience}/>
+            ))
+        };
       </div>
-      {props.pokemon.map((pokemon:any) => (
-        <Pokecard id = {pokemon.id} name = {pokemon.name} type = {pokemon.type} exp = {pokemon.base_experience}/>
-      )
     </div>
-};
-
+  )
+      }
+    
 Pokedex.defaultProps = {
   pokemon: [
     {id: 4, name: 'Charmander', type: 'fire', base_experience: 62},
